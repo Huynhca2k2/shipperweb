@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
+package com.chh.repository;
+import com.chh.pojos.Account;
+import com.chh.pojos.Auction;
+import com.chh.pojos.Shipper;
+import java.math.BigDecimal;
+import java.util.List;
+
+/**
+ *
+ * @author huynh
+ */
+public interface ShipperRepository {
+    boolean add(Shipper shipper);
+    List<Shipper> findAll();
+    List<Shipper> findById(int id);
+    void setAuctionId(Shipper ship, int idAuc);
+    void setStatus(Shipper ship, boolean isSeleted);
+    void setDealShipper(Shipper ship, BigDecimal deal);
+    void setIsShipper(Shipper ship, boolean isShip);
+    void setAccount(Shipper ship, Account acc);
+    void setIdAccountTmp(Shipper ship, int accountIdTmp);
+    void updateShipper(String avatar,String cmnd, String currentPos,int idShip);
+}
