@@ -80,19 +80,14 @@ public class ApiPayController {
         List<Pay> pays = this.payService.findById(id);
         
         if (!pays.isEmpty() && pays.get(0).isStatus() == false) {
-            Account accOfShip = pays.get(0).getAuction().getShippers().get(0).getAccount();
+            Account accOfShip = pays.get(0).getProduct().getShippers().get(0).getAccount();
             Account accOfUser = accs.get(0);
-            BigDecimal payMentValue = pays.get(0).getAuction().getDeal();
-            
-            //tru money cua user roi cong cho shipper
-            this.accountService.setMoney(accOfShip, accOfShip.getMoney().add(payMentValue));
-            this.accountService.setMoney(accOfUser, accOfUser.getMoney().subtract(payMentValue));
             
             //set lai status pay da thanh toan
             this.payService.setPayStatus(pays.get(0), true);
             
             //reset shipper
-            this.shipperService.setAuctionId(accOfShip.getShipper(), 0);
+            this.shipperService.setProductId(accOfShip.getShipper(), 0);
             this.shipperService.setStatus(accOfShip.getShipper(), false);
             
             return new ResponseEntity<>("Pay suscess!", HttpStatus.CREATED);

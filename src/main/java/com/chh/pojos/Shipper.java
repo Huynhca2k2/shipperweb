@@ -54,8 +54,8 @@ public class Shipper implements Serializable {
     
     @ManyToOne
     @JsonBackReference
-    @JoinColumn(name = "auction_id", referencedColumnName = "auction_id")
-    private Auction auction;
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
+    private Product product;
     
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shipper")
@@ -166,21 +166,6 @@ public class Shipper implements Serializable {
     public void setFileCmnd(MultipartFile fileCmnd) {
         this.fileCmnd = fileCmnd;
     }
-
-    /**
-     * @return the auction
-     */
-    public Auction getAuction() {
-        return auction;
-    }
-
-    /**
-     * @param auction the auction to set
-     */
-    public void setAuction(Auction auction) {
-        this.auction = auction;
-    }
-
     /**
      * @return the dealShipper
      */
@@ -249,6 +234,20 @@ public class Shipper implements Serializable {
      */
     public void setAccountIdTmp(int accountIdTmp) {
         this.accountIdTmp = accountIdTmp;
+    }
+
+    /**
+     * @return the product
+     */
+    public Product getProduct() {
+        return product;
+    }
+
+    /**
+     * @param product the product to set
+     */
+    public void setProduct(Product product) {
+        this.product = product;
     }
     
 }

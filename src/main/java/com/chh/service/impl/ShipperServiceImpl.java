@@ -5,10 +5,8 @@
 package com.chh.service.impl;
 
 import com.chh.pojos.Account;
-import com.chh.pojos.Auction;
 import com.chh.pojos.Shipper;
 import com.chh.repository.AccountRepository;
-import com.chh.repository.AuctionRepository;
 import com.chh.repository.ShipperRepository;
 import com.chh.service.ShipperService;
 import com.cloudinary.Cloudinary;
@@ -33,9 +31,6 @@ public class ShipperServiceImpl implements ShipperService{
     public AccountRepository accountRepository;
     
     @Autowired
-    public AuctionRepository auctionRepository;
-    
-    @Autowired
     private Cloudinary Cloudinary;
     
     @Override
@@ -54,8 +49,8 @@ public class ShipperServiceImpl implements ShipperService{
     }
     
     @Override
-    public void setAuctionId(Shipper ship, int idAuc) {
-        this.shipperRepository.setAuctionId(ship, idAuc);
+    public void setProductId(Shipper ship, int idProd) {
+        this.shipperRepository.setProductId(ship, idProd);
     }
     
     @Override

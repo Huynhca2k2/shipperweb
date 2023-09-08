@@ -14,7 +14,9 @@ import com.chh.service.CommentService;
 import com.chh.service.ShipperService;
 import com.chh.service.UserService;
 import java.security.Principal;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,7 +50,7 @@ public class ApiUserController {
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ResponseEntity<List<User>> getAllUser() {
         return new ResponseEntity<>(
-                (List<User>)userService.findAll(),
+                (List<User>)this.userService.findAll(),
             HttpStatus.OK);
     }
     
@@ -65,7 +67,7 @@ public class ApiUserController {
     /*INFO CURRENT USER*/
     @RequestMapping(value = "/users/my", method = RequestMethod.GET)
     public ResponseEntity<Object> currentUserName(Principal principal) {
-        Account acc = (Account) accountService.findByUsername(principal.getName()).get(0);
+        Account acc = (Account) this.accountService.findByUsername(principal.getName()).get(0);
         if (acc.getUser() != null) {
             return new ResponseEntity<>(acc.getUser(), HttpStatus.OK);
         } else {
@@ -78,10 +80,11 @@ public class ApiUserController {
     @RequestMapping(value = "/users/comments/{idShipper}", method = RequestMethod.POST)
     public ResponseEntity<String> addCommentShipper(@RequestBody Comment comm, @PathVariable int idShipper, Principal prin) {
         
-        List<Account> accs = accountService.findByUsername(prin.getName());
-        List<Shipper> ships = shipperService.findById(idShipper);
+        List<Account> accs = this.accountService.findByUsername(prin.getName());
+        List<Shipper> ships = this.shipperService.findById(idShipper);
         if (!ships.isEmpty()) {
-            commentService.add(comm, accs.get(0).getUser().getUserId(), idShipper);
+            comm.setDateComment(new Date());
+            this.commentService.add(comm, accs.get(0).getUser().getUserId(), idShipper);
             return new ResponseEntity<>("Comment suscess!", HttpStatus.CREATED);
         }else 
             return new ResponseEntity<>("Don't comment!", HttpStatus.BAD_REQUEST);

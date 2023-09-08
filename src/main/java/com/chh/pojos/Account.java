@@ -7,9 +7,7 @@ package com.chh.pojos;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -30,11 +28,11 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
  *
  * @author huynh
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(value = {"roleAccount", "authorities" })
-@Entity
-@Table(name = "account")
-public class Account implements Serializable{
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnoreProperties(value = {"roleAccount", "authorities" })
+    @Entity
+    @Table(name = "account")
+    public class Account implements Serializable{
     public static final String ADMIN = "ROLE_ADMIN";
     public static final String SHIPPER = "ROLE_SHIPPER";
     public static final String USER = "ROLE_USER";
@@ -50,9 +48,10 @@ public class Account implements Serializable{
     private String email;
     private String phone;
     private String address;
-    private BigDecimal money;
     @Column(name = "role_account")
     private String roleAccount;
+    @Column(name = "type_role")
+    private int typeRole;
     @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
     private Shipper shipper;
@@ -64,12 +63,11 @@ public class Account implements Serializable{
     private String confirmPassword;
     
     public List<GrantedAuthority> getAuthorities() {
-    List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(roleAccount));
     
-    authorities.add(new SimpleGrantedAuthority(roleAccount));
-    
-    return authorities;
-  }
+        return authorities;
+    }
     
 
     /**
@@ -228,17 +226,17 @@ public class Account implements Serializable{
     }
 
     /**
-     * @return the money
+     * @return the typeRole
      */
-    public BigDecimal getMoney() {
-        return money;
+    public int getTypeRole() {
+        return typeRole;
     }
 
     /**
-     * @param money the money to set
+     * @param typeRole the typeRole to set
      */
-    public void setMoney(BigDecimal money) {
-        this.money = money;
+    public void setTypeRole(int typeRole) {
+        this.typeRole = typeRole;
     }
     
 }

@@ -17,7 +17,7 @@ public interface ShipperService {
     boolean add(Shipper shipper);
     List<Shipper> findAll();
     List<Shipper> findById(int id);
-    void setAuctionId(Shipper ship, int idAuc);
+    void setProductId(Shipper ship, int idProd);
     void setStatus(Shipper ship, boolean isSeleted);
     void setDealShipper(Shipper ship, BigDecimal deal);
     void setIsShipper(Shipper ship, boolean isShip);

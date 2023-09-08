@@ -5,6 +5,7 @@
 package com.chh.service;
 
 import com.chh.pojos.Product;
+import java.math.BigDecimal;
 import java.util.List;
 /**
  *
@@ -18,5 +19,6 @@ public interface ProductService{
     void setAuction(Product prod, int idAuc);
     void setUserId(Product prod, int idUser);
     void updateProduct(String nameproduct, String image, int idProd);
+    void setDealProduct(Product product, BigDecimal deal);
     //Product findByIdUser(int idUser);
 }

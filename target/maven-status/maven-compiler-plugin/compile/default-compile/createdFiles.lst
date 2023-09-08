@@ -3,18 +3,15 @@ com\chh\configs\HibernateConfig.class
 com\chh\service\JwtService.class
 com\chh\pojos\User.class
 com\chh\configs\webApplicationContextConfig.class
-com\chh\repository\impl\AuctionRepositoryImlp.class
 com\chh\pojos\Comment.class
 com\chh\pojos\Pay.class
 com\chh\repository\ProductRepository.class
 com\chh\service\impl\AccountServiceImpl.class
-com\chh\service\impl\AuctionServiceImpl.class
 com\chh\repository\ShipperRepository.class
 com\chh\repository\AccountRepository.class
 com\chh\repository\impl\PayRepositoryImlp.class
 com\chh\service\AccountService.class
 com\chh\repository\impl\UserRepositoryImpl.class
-com\chh\controllers\ApiAuctionController.class
 com\chh\repository\UserRepository.class
 com\chh\authencation\RestAuthenticationEntryPoint.class
 com\chh\service\impl\CommentServiceImpl.class
@@ -23,7 +20,6 @@ com\chh\configs\DispatcherServletInitializer.class
 com\chh\configs\TilesConfig.class
 com\chh\controllers\ApiShipperController.class
 com\chh\controllers\ShipperController.class
-com\chh\pojos\Auction.class
 com\chh\service\impl\ProductServiceImpl.class
 com\chh\service\CommentService.class
 com\chh\pojos\Product.class
@@ -33,7 +29,6 @@ com\chh\service\ProductService.class
 com\chh\configs\SecurityWebAppInitializer.class
 com\chh\authencation\CustomAccessDeniedHandler.class
 com\chh\repository\impl\ShipperRepositoryImpl.class
-com\chh\repository\AuctionRepository.class
 com\chh\configs\SpringSecurityConfig.class
 com\chh\service\impl\ShipperServiceImpl.class
 com\chh\controllers\ApiCommentController.class
@@ -51,6 +46,5 @@ com\chh\service\impl\UserServiceImpl.class
 com\chh\controllers\ApiAccountController.class
 com\chh\service\ShipperService.class
 com\chh\pojos\Shipper.class
-com\chh\service\AuctionService.class
 com\chh\pojos\Account.class
 com\chh\repository\impl\ProductRepositoryImlp.class

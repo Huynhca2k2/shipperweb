@@ -70,10 +70,10 @@ public class AccountServiceImpl implements AccountService{
         this.accountRepository.setRoleAccount(account, roleAcc);
     }
     
-    @Override
-    public void setMoney(Account account, BigDecimal money) {
-        this.accountRepository.setMoney(account, money);
-    }
+//    @Override
+//    public void setMoney(Account account, BigDecimal money) {
+//        this.accountRepository.setMoney(account, money);
+//    }
     
     @Override
     public boolean checkLogin(Account acc){

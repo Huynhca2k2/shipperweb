@@ -4,19 +4,18 @@
  */
 package com.chh.pojos;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -32,7 +31,8 @@ public class Comment implements Serializable {
     private int commentId;
     private String content;
     @Column(name = "date_comment")
-    private String dateComment;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dateComment;
     
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
@@ -73,14 +73,14 @@ public class Comment implements Serializable {
     /**
      * @return the dateComment
      */
-    public String getDateComment() {
+    public Date getDateComment() {
         return dateComment;
     }
 
     /**
      * @param dateComment the dateComment to set
      */
-    public void setDateComment(String dateComment) {
+    public void setDateComment(Date dateComment) {
         this.dateComment = dateComment;
     }
 

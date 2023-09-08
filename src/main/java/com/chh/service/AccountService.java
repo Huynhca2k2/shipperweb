@@ -23,7 +23,7 @@ public interface AccountService extends UserDetailsService{
     void delete(int id);
     void setRoleAccount(Account account, String roleAccount);
     boolean checkLogin(Account account);
-    void setMoney(Account account, BigDecimal money);
+    //void setMoney(Account account, BigDecimal money);
     void updateAccount(String username, String password, String fullName, String email, String phone, String address, int idAcc);
 
 }

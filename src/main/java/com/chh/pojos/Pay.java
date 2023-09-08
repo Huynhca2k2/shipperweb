@@ -4,8 +4,9 @@
  */
 package com.chh.pojos;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -27,12 +29,13 @@ public class Pay implements Serializable {
     @Column(name = "pay_id")
     private int payId;
     @Column(name = "date_pay")
-    private String datePay;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date datePay;
     private boolean status;
     
     @OneToOne
-    @JoinColumn(name = "auction_id",  referencedColumnName = "auction_id")
-    private Auction auction;
+    @JoinColumn(name = "product_id",  referencedColumnName = "product_id")
+    private Product product;
 
     /**
      * @return the payId
@@ -51,14 +54,14 @@ public class Pay implements Serializable {
     /**
      * @return the datePay
      */
-    public String getDatePay() {
+    public Date getDatePay() {
         return datePay;
     }
 
     /**
      * @param datePay the datePay to set
      */
-    public void setDatePay(String datePay) {
+    public void setDatePay(Date datePay) {
         this.datePay = datePay;
     }
 
@@ -77,16 +80,16 @@ public class Pay implements Serializable {
     }
 
     /**
-     * @return the auction
+     * @return the product
      */
-    public Auction getAuction() {
-        return auction;
+    public Product getProduct() {
+        return product;
     }
 
     /**
-     * @param auction the auction to set
+     * @param product the product to set
      */
-    public void setAuction(Auction auction) {
-        this.auction = auction;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

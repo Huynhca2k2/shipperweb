@@ -43,7 +43,7 @@ public class User implements Serializable {
     private List<Comment> comments;
     
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Product> products;
     
     /**

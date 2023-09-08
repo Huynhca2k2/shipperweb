@@ -20,6 +20,6 @@ public interface AccountRepository{
     void delete(int id);
     void setRoleAccount(Account account, String roleAcc);
     boolean checkLogin(Account account);
-    void setMoney(Account account, BigDecimal money);
+    //void setMoney(Account account, BigDecimal money);
     void updateAccount(String username, String password, String fullName, String email, String phone, String address, int idAcc);
 }

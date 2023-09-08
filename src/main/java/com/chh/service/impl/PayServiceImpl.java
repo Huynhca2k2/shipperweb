@@ -4,8 +4,8 @@
  */
 package com.chh.service.impl;
 
-import com.chh.pojos.Auction;
 import com.chh.pojos.Pay;
+import com.chh.pojos.Product;
 import com.chh.repository.PayRepository;
 
 import com.chh.service.PayService;
@@ -34,8 +34,8 @@ public class PayServiceImpl implements PayService{
 
 
     @Override
-    public boolean add(Pay pay, Auction auc) {
-        pay.setAuction(auc);
+    public boolean add(Pay pay, Product prod) {
+        pay.setProduct(prod);
         return this.payRepository.add(pay);
     }
 

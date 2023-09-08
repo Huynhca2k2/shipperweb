@@ -4,7 +4,6 @@
  */
 package com.chh.repository;
 import com.chh.pojos.Account;
-import com.chh.pojos.Auction;
 import com.chh.pojos.Shipper;
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,7 +16,7 @@ public interface ShipperRepository {
     boolean add(Shipper shipper);
     List<Shipper> findAll();
     List<Shipper> findById(int id);
-    void setAuctionId(Shipper ship, int idAuc);
+    void setProductId(Shipper ship, int idProd);
     void setStatus(Shipper ship, boolean isSeleted);
     void setDealShipper(Shipper ship, BigDecimal deal);
     void setIsShipper(Shipper ship, boolean isShip);

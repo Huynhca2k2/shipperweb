@@ -5,6 +5,7 @@
 package com.chh.repository;
 
 import com.chh.pojos.Product;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -19,5 +20,6 @@ public interface ProductRepository{
     void setAuction(Product prod, int idAuc);
     void setUserId(Product prod, int idUser);
     void updateProduct(String nameproduct, String image, int idProd);
+    void setDealProduct(Product product, BigDecimal deal);
     //Product findByIdUser(int idUser);
 }

@@ -5,7 +5,6 @@
 package com.chh.repository.impl;
 
 import com.chh.pojos.Account;
-import com.chh.pojos.Auction;
 import com.chh.pojos.Shipper;
 import com.chh.repository.ShipperRepository;
 import java.math.BigDecimal;
@@ -58,10 +57,10 @@ public class ShipperRepositoryImpl implements ShipperRepository{
     }
     
     @Override
-    public void setAuctionId(Shipper ship, int idAuc) {
+    public void setProductId(Shipper ship, int idProd) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("UPDATE Shipper S SET S.auction.auctionId=:idAuc WHERE S.shipperId=:idShip");
-        q.setParameter("idAuc", idAuc);
+        Query q = session.createQuery("UPDATE Shipper S SET S.product.productId=:idProd WHERE S.shipperId=:idShip");
+        q.setParameter("idProd", idProd);
         q.setParameter("idShip", ship.getShipperId());
         q.executeUpdate();
     }

@@ -81,13 +81,13 @@ public class ApiShipperController {
       }
         
     /*SHIPPER AUCTION*/
-    @RequestMapping(value = "/shippers/auctions/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/shippers/products/{id}", method = RequestMethod.POST)
     public ResponseEntity<String> addListShipper(@PathVariable int id, Principal prin) {
         Account acc = this.accountService.findByUsername(prin.getName()).get(0);
         Shipper ship = acc.getShipper();
         //khi shipper chua dau gia thi
-        if (ship.isStatus() == false && ship.getAuction().getAuctionId() == 0) {
-            this.shipperService.setAuctionId(ship, id);
+        if (ship.isStatus() == false && ship.getProduct().getProductId() == 0) {
+            this.shipperService.setProductId(ship, id);
             return new ResponseEntity<>("add suscess!", HttpStatus.CREATED);
         }else 
             return new ResponseEntity<>("Please wait for the auction to finish!", HttpStatus.BAD_REQUEST);
@@ -106,7 +106,6 @@ public class ApiShipperController {
             this.shipperService.setIsShipper(ships.get(0), true);
             this.shipperService.setAccount(ships.get(0), accs.get(0));
             this.accountService.setRoleAccount(accs.get(0), Account.SHIPPER);
-            //this.userService.delete(accs.get(0).getUser().getUserId());
             
             return new ResponseEntity<>("add suscess!", HttpStatus.CREATED);
         }else 
@@ -122,4 +121,6 @@ public class ApiShipperController {
                                      ship.getCurrentPos(), id);
         return new ResponseEntity<>("Updated!", HttpStatus.OK);
     }
+    
+    
 }

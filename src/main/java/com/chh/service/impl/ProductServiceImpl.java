@@ -8,6 +8,7 @@ import com.chh.pojos.Product;
 import com.chh.repository.ProductRepository;
 
 import com.chh.service.ProductService;
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,4 +57,8 @@ public class ProductServiceImpl implements ProductService{
         this.productRepository.updateProduct(nameproduct, image, idProd);
     }
     
+    @Override
+    public void setDealProduct(Product product, BigDecimal deal){
+        this.productRepository.setDealProduct(product, deal);
+    }
 }

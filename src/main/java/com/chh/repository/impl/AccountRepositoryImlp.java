@@ -89,16 +89,16 @@ public class AccountRepositoryImlp implements AccountRepository{
         
     }
     
-    @Override
-    public void setMoney(Account account, BigDecimal money) {
-        Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("UPDATE Account A SET A.money=:money WHERE A.accountId=:idAcc");
-        q.setParameter("money", money);
-        q.setParameter("idAcc", account.getAccountId());
-        
-        q.executeUpdate();
-        
-    }
+//    @Override
+//    public void setMoney(Account account, BigDecimal money) {
+//        Session session = this.sessionFactory.getObject().getCurrentSession();
+//        Query q = session.createQuery("UPDATE Account A SET A.money=:money WHERE A.accountId=:idAcc");
+//        q.setParameter("money", money);
+//        q.setParameter("idAcc", account.getAccountId());
+//        
+//        q.executeUpdate();
+//        
+//    }
 
     @Override
     public boolean checkLogin(Account account) {

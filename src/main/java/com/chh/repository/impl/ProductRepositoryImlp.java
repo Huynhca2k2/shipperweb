@@ -6,6 +6,7 @@ package com.chh.repository.impl;
 
 import com.chh.pojos.Product;
 import com.chh.repository.ProductRepository;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Query;
 import org.hibernate.HibernateException;
@@ -96,5 +97,16 @@ public class ProductRepositoryImlp implements ProductRepository{
         q.setParameter("idProd", idProd);
         
         q.executeUpdate();
+    }
+    
+    @Override
+    public void setDealProduct(Product product, BigDecimal deal) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("UPDATE Product S SET S.deal=:deal WHERE S.productId=:idProd");
+        q.setParameter("deal", deal);
+        q.setParameter("idProd", product.getProductId());
+        
+        q.executeUpdate();
+        
     }
 }
