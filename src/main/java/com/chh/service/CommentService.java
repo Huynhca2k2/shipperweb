@@ -16,4 +16,5 @@ public interface CommentService{
     boolean add(Comment comment, int idUser, int idShipper);
     void delete(int id);
     void updateComment(String content, int idComm);
+    
 }

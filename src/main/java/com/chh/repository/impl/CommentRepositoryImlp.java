@@ -75,4 +75,24 @@ public class CommentRepositoryImlp implements CommentRepository{
         q.executeUpdate();
     }
 
+//    @Override
+//    public List<Comment> getCommentsByShipperId(int idShip, int page) {
+//        Session session = this.sessionFactory.getObject().getCurrentSession();
+//        CriteriaBuilder builder = session.getCriteriaBuilder();
+//        CriteriaQuery<Comment> query = builder.createQuery(Comment.class);
+//        Root root = query.from(Comment.class);
+//        
+//        query = query.where(builder.equal(root.get("shipper"), idShip));
+//        query = query.orderBy(builder.desc(root.get("commentId")));
+//        
+//        Query q = session.createQuery(query);
+//        
+//        int max = 5;
+//        q.setMaxResults(max);
+//        q.setFirstResult((page - 1) * max);
+//        
+//        return q.getResultList();
+//    }
+    
+
 }

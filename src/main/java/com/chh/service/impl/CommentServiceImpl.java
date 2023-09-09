@@ -61,5 +61,4 @@ public class CommentServiceImpl implements CommentService{
     public void updateComment(String content, int idComm){
         this.commentRepository.updateComment(content, idComm);
     }
-    
 }
